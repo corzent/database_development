@@ -1,0 +1,7 @@
+nltk==3.8.1
+spacy==3.7.2
+ebooklib==0.18
+beautifulsoup4==4.12.2
+scikit-learn==1.4.0
+chardet==5.2.0
+scipy==1.11.4 

@@ -1,0 +1,36 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}Статьи - Журнал КГТУ{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Статьи</h1>
+
+<div class="row">
+    {% for article in articles %}
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                {% if article.annotation_ru %}
+                <p class="card-text">
+                    <strong>Аннотация:</strong><br>
+                    {{ article.annotation_ru|truncatewords:50 }}
+                </p>
+                {% endif %}
+                {% if article.keywords_ru %}
+                <p class="card-text">
+                    <strong>Ключевые слова:</strong><br>
+                    {{ article.keywords_ru }}
+                </p>
+                {% endif %}
+                <a href="{% url 'article_detail' article.pk %}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <p>Статьи не найдены.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %} 

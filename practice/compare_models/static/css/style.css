@@ -1,0 +1,162 @@
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.model-card {
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.model-card:hover {
+    transform: translateY(-5px);
+}
+
+.comparison-table {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.result-section {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.entity-tag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.entity-person {
+    background-color: #007bff;
+}
+
+.entity-org {
+    background-color: #28a745;
+}
+
+.entity-gpe {
+    background-color: #dc3545;
+}
+
+.entity-date {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.entity-time {
+    background-color: #17a2b8;
+}
+
+.entity-money {
+    background-color: #6f42c1;
+}
+
+.entity-percent {
+    background-color: #20c997;
+}
+
+.entity-fac {
+    background-color: #fd7e14;
+}
+
+.entity-loc {
+    background-color: #e83e8c;
+}
+
+.entity-product {
+    background-color: #6c757d;
+}
+
+.entity-event {
+    background-color: #6610f2;
+}
+
+.entity-work_of_art {
+    background-color: #d63384;
+}
+
+.entity-law {
+    background-color: #198754;
+}
+
+.entity-language {
+    background-color: #0dcaf0;
+}
+
+.entity-default {
+    background-color: #6c757d;
+    color: white;
+}
+
+.entities-container {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.result-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+}
+
+.result-section h4 {
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+.model-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.chart-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.legend h5 {
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+.legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.legend-items .entity-tag {
+    font-size: 0.8rem;
+    cursor: help;
+}
+
+.model-info {
+    margin-bottom: 1rem;
+    font-style: italic;
+} 

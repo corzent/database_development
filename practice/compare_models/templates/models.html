@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Models - NER Models Comparison{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">NER Models Overview</h1>
+    </div>
+</div>
+
+<div class="row">
+    {% for model_id, info in models.items %}
+    <div class="col-md-6 mb-4">
+        <div class="card model-card h-100">
+            <div class="card-body">
+                <h2 class="card-title">{{ info.name }}</h2>
+                <p class="card-text model-description">{{ info.description }}</p>
+                <button class="btn btn-outline-primary details-button mb-3">Show Details</button>
+                <div class="model-details d-none">
+                    <h5>Features:</h5>
+                    <ul>
+                        {% for feature in info.features %}
+                        <li>{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% if info.languages %}
+                    <h5>Supported Languages:</h5>
+                    <ul>
+                        {% for language in info.languages %}
+                        <li>{{ language }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% if info.models %}
+                    <h5>Available Models:</h5>
+                    <ul>
+                        {% for model in info.models %}
+                        <li>{{ model }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h3>Technical Details</h3>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Architecture</th>
+                                <th>Training Data</th>
+                                <th>Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>SpaCy</td>
+                                <td>CNN + Transition-based parsing</td>
+                                <td>OntoNotes 5.0, Wikipedia</td>
+                                <td>Fast, good accuracy</td>
+                            </tr>
+                            <tr>
+                                <td>Transformers</td>
+                                <td>BERT/RoBERTa architecture</td>
+                                <td>CoNLL-2003, custom datasets</td>
+                                <td>High accuracy, slower</td>
+                            </tr>
+                            <tr>
+                                <td>Stanford NER</td>
+                                <td>CRF-based</td>
+                                <td>CoNLL, MUC</td>
+                                <td>Balanced performance</td>
+                            </tr>
+                            <tr>
+                                <td>NLTK</td>
+                                <td>Maximum Entropy</td>
+                                <td>ACE, CoNLL</td>
+                                <td>Good for learning</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

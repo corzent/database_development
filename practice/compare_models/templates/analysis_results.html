@@ -1,0 +1,69 @@
+<div class="legend mb-4">
+    <h5>Entity Types:</h5>
+    <div class="legend-items">
+        <span class="entity-tag entity-person">Person</span>
+        <span class="entity-tag entity-org">Organization</span>
+        <span class="entity-tag entity-gpe">Location</span>
+        <span class="entity-tag entity-date">Date</span>
+        <span class="entity-tag entity-time">Time</span>
+        <span class="entity-tag entity-money">Money</span>
+        <span class="entity-tag entity-percent">Percentage</span>
+        <span class="entity-tag entity-fac">Facility</span>
+        <span class="entity-tag entity-loc">Location</span>
+        <span class="entity-tag entity-product">Product</span>
+        <span class="entity-tag entity-event">Event</span>
+        <span class="entity-tag entity-work_of_art">Work of Art</span>
+        <span class="entity-tag entity-law">Law</span>
+        <span class="entity-tag entity-language">Language</span>
+    </div>
+</div>
+
+{% for model_name, model_data in results.items %}
+<div class="result-section mb-4">
+    <h4>{{ model_name|title }} Results:</h4>
+    <p class="model-info"><small class="text-muted">Model: {{ model_data.model }}</small></p>
+    {% if model_data.entities %}
+        <div class="entities-container">
+            {% for entity in model_data.entities %}
+                {% if model_name == 'transformers' %}
+                    {% with label=entity.label|lower %}
+                        {% if 'person' in label %}
+                            <span class="entity-tag entity-person">{{ entity.text }}</span>
+                        {% elif 'org' in label %}
+                            <span class="entity-tag entity-org">{{ entity.text }}</span>
+                        {% elif 'loc' in label or 'gpe' in label %}
+                            <span class="entity-tag entity-loc">{{ entity.text }}</span>
+                        {% elif 'date' in label %}
+                            <span class="entity-tag entity-date">{{ entity.text }}</span>
+                        {% elif 'time' in label %}
+                            <span class="entity-tag entity-time">{{ entity.text }}</span>
+                        {% elif 'money' in label %}
+                            <span class="entity-tag entity-money">{{ entity.text }}</span>
+                        {% elif 'percent' in label %}
+                            <span class="entity-tag entity-percent">{{ entity.text }}</span>
+                        {% elif 'fac' in label %}
+                            <span class="entity-tag entity-fac">{{ entity.text }}</span>
+                        {% elif 'product' in label %}
+                            <span class="entity-tag entity-product">{{ entity.text }}</span>
+                        {% elif 'event' in label %}
+                            <span class="entity-tag entity-event">{{ entity.text }}</span>
+                        {% elif 'work' in label %}
+                            <span class="entity-tag entity-work_of_art">{{ entity.text }}</span>
+                        {% elif 'law' in label %}
+                            <span class="entity-tag entity-law">{{ entity.text }}</span>
+                        {% elif 'language' in label %}
+                            <span class="entity-tag entity-language">{{ entity.text }}</span>
+                        {% else %}
+                            <span class="entity-tag entity-default">{{ entity.text }}</span>
+                        {% endif %}
+                    {% endwith %}
+                {% else %}
+                    <span class="entity-tag entity-{{ entity.label|lower }}">{{ entity.text }}</span>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No entities found.</p>
+    {% endif %}
+</div>
+{% endfor %} 

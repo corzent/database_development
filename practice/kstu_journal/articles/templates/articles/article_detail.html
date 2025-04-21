@@ -1,0 +1,55 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}{{ article.title }} - Журнал КГТУ{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title mb-4">{{ article.title }}</h1>
+
+        {% if article.annotation_ru %}
+        <div class="mb-4">
+            <h3>Аннотация (русский)</h3>
+            <p>{{ article.annotation_ru }}</p>
+        </div>
+        {% endif %}
+
+        {% if article.annotation_en %}
+        <div class="mb-4">
+            <h3>Abstract (English)</h3>
+            <p>{{ article.annotation_en }}</p>
+        </div>
+        {% endif %}
+
+        {% if article.annotation_ky %}
+        <div class="mb-4">
+            <h3>Аннотация (кыргызча)</h3>
+            <p>{{ article.annotation_ky }}</p>
+        </div>
+        {% endif %}
+
+        {% if article.keywords_ru %}
+        <div class="mb-4">
+            <h3>Ключевые слова (русский)</h3>
+            <p>{{ article.keywords_ru }}</p>
+        </div>
+        {% endif %}
+
+        {% if article.keywords_en %}
+        <div class="mb-4">
+            <h3>Keywords (English)</h3>
+            <p>{{ article.keywords_en }}</p>
+        </div>
+        {% endif %}
+
+        {% if article.keywords_ky %}
+        <div class="mb-4">
+            <h3>Чыгарма сөздөр (кыргызча)</h3>
+            <p>{{ article.keywords_ky }}</p>
+        </div>
+        {% endif %}
+
+        <a href="{% url 'article_list' %}" class="btn btn-secondary">Назад к списку</a>
+    </div>
+</div>
+{% endblock %} 

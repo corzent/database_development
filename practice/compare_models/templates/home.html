@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - NER Models Comparison{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Named Entity Recognition Models Comparison</h1>
+        <div class="model-description mb-5">
+            <p>Named Entity Recognition (NER) is a crucial task in Natural Language Processing that involves identifying and classifying named entities (such as person names, organizations, locations, dates) in text. This website compares different NER approaches using popular libraries and models:</p>
+            <ul>
+                <li><strong>SpaCy:</strong> Industrial-strength NLP library with pre-trained models for multiple languages</li>
+                <li><strong>Hugging Face Transformers:</strong> State-of-the-art transformer models (BERT, RoBERTa)</li>
+                <li><strong>Stanford NER:</strong> Well-established Java-based NER system</li>
+                <li><strong>NLTK:</strong> Classic Python NLP toolkit with NER capabilities</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Try it out!</h2>
+                <form id="analyze-form" action="{% url 'analyze_text' %}" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Enter your text:</label>
+                        <textarea class="form-control" id="text" name="text" rows="4" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Select models to compare:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="models" value="spacy" id="spacy" checked>
+                            <label class="form-check-label" for="spacy">SpaCy</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="models" value="transformers" id="transformers">
+                            <label class="form-check-label" for="transformers">Hugging Face Transformers</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="models" value="nltk" id="nltk">
+                            <label class="form-check-label" for="nltk">NLTK</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Analyze Text</button>
+                </form>
+                <div id="results-container" class="mt-4"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <h2>Example Results</h2>
+        <div class="result-section">
+            <p>Sample text: "Apple CEO Tim Cook announced new iPhone models at their headquarters in Cupertino, California on September 12th, 2023."</p>
+            <div class="mt-3">
+                <h5>Identified Entities:</h5>
+                <div class="entities-container">
+                    <span class="entity-tag entity-org">Apple</span>
+                    <span class="entity-tag entity-person">Tim Cook</span>
+                    <span class="entity-tag entity-product">iPhone</span>
+                    <span class="entity-tag entity-loc">Cupertino</span>
+                    <span class="entity-tag entity-loc">California</span>
+                    <span class="entity-tag entity-date">September 12th, 2023</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

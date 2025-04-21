@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Collection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Books Collection</h1>
+        
+        <div class="books-grid">
+            {% for book in books %}
+            <div class="book">
+                <img src="{{ url_for('static', filename='images/' + book.image) }}" alt="{{ book.title }}">
+                
+                <div class="book-content">
+                    <h2>{{ book.title }}</h2>
+                    <p>Author: {{ book.author }}</p>
+                    
+                    <div class="language-divider"></div>
+                    
+                    <h3>{{ book.title_ru }}</h3>
+                    <p>Автор: {{ book.author_ru }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> 

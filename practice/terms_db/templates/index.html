@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Словарь</title>
+</head>
+<body>
+
+    <!-- Навигация по алфавиту -->
+    <div>
+        {% for letter in alphabet %}
+            <a href="/?letter={{ letter }}">{{ letter }}</a>
+        {% endfor %}
+    </div>
+
+    <h1>Список терминов</h1>
+
+    <!-- Форма добавления -->
+    <form action="/add" method="post">
+        <input type="text" name="term" placeholder="Термин" required>
+        <input type="text" name="definition" placeholder="Определение" required>
+        <button type="submit">Добавить</button>
+    </form>
+
+    <ul>
+        {% for term_id, term, definition in terms %}
+            <li>
+                <strong>{{ term }}</strong>: {{ definition }}
+                <form action="/delete/{{ term_id }}" method="post" style="display:inline;">
+                    <button type="submit">Удалить</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

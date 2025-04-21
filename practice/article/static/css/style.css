@@ -1,0 +1,129 @@
+.keyword-container, .entity-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.keyword, .entity {
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.keyword {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.entity {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.article-content {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #333;
+    font-family: 'Georgia', serif;
+}
+
+.article-content h1, .article-content h2, .article-content h3 {
+    color: #1976d2;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+.article-content p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.abstract-content {
+    font-style: italic;
+    line-height: 1.6;
+    color: #555;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #1976d2;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #1976d2;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Стили для заголовков в статье */
+.article-content strong, .article-content b {
+    color: #1976d2;
+    font-weight: 600;
+}
+
+/* Стили для списков в статье */
+.article-content ul, .article-content ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.article-content li {
+    margin-bottom: 8px;
+}
+
+/* Стили для ссылок в статье */
+.article-content a {
+    color: #1976d2;
+    text-decoration: underline;
+}
+
+/* Стили для цитат в статье */
+.article-content blockquote {
+    border-left: 4px solid #1976d2;
+    padding-left: 15px;
+    margin-left: 0;
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #555;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.btn-primary {
+    background-color: #1976d2;
+    border: none;
+    padding: 8px 24px;
+}
+
+.btn-primary:hover {
+    background-color: #1565c0;
+} 
